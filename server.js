@@ -10,6 +10,12 @@ const schedule = require('node-schedule');
 var querystring = require('querystring');
 const port = 800;
 const http = require('http');
+
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/your-app-name');
+
+
+
 function read_mailing_list(file_to_read) {
     let splitArray;
     fs.readFile(file_to_read, function (err, buff) {
